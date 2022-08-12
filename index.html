@@ -19,6 +19,21 @@
                     <img class="logo" src="img/LOGO.png" alt="memegen logo">
                 </section>
 
+
+                <div class="hamburger-menu">
+                    <input id="menu__toggle" type="checkbox" />
+                    <label class="menu__btn" for="menu__toggle">
+                        <span></span>
+                    </label>
+
+                    <ul class="menu__box">
+                        <li><a class="menu__item" href="#" onclick="closeEditor()">Gallery</a></li>
+                        <li><a class="menu__item" href="#">Memes</a></li>
+                        <li><a class="menu__item" href="#about-anchor">About</a></li>
+                    </ul>
+                </div>
+
+
                 <nav class="nav full">
                     <ul class="clean-list flex">
                         <div class="link-container flex justify-center align-center">
@@ -28,7 +43,7 @@
                             <li><a class="header-link" href="">Memes</a></li>
                         </div>
                         <div class="link-container flex justify-center align-center">
-                            <li><a class="header-link" href="">About</a></li>
+                            <li><a class="header-link" href="#about-anchor">About</a></li>
                         </div>
                     </ul>
                 </nav>
@@ -47,24 +62,6 @@
 
         <section class="gallery-container main-layout">
             <section id="gallery" class="grid image-gallery">
-                <!-- <img id="1" class="grid-img img1" onclick="openEditor(this)" src="img/1.jpg" alt="">
-                <img id="2" class="grid-img img2" onclick="openEditor(this)" src="img/2.jpg" alt="">
-                <img id="3" class="grid-img img3" onclick="openEditor(this)" src="img/3.jpg" alt="">
-                <img id="4" class="grid-img img4" onclick="openEditor(this)" src="img/4.jpg" alt="">
-                <img id="5" class="grid-img img5" onclick="openEditor(this)" src="img/5.jpg" alt="">
-                <img id="6" class="grid-img img6" onclick="openEditor(this)" src="img/6.jpg" alt="">
-                <img id="7" class="grid-img img7" onclick="openEditor(this)" src="img/7.jpg" alt="">
-                <img id="8" class="grid-img img8" onclick="openEditor(this)" src="img/8.jpg" alt="">
-                <img id="9" class="grid-img img9" onclick="openEditor(this)" src="img/9.jpg" alt="">
-                <img id="10" class="grid-img img10" onclick="openEditor(this)" src="img/10.jpg" alt="">
-                <img id="11" class="grid-img img11" onclick="openEditor(this)" src="img/11.jpg" alt="">
-                <img id="12" class="grid-img img12" onclick="openEditor(this)" src="img/12.jpg" alt="">
-                <img id="13" class="grid-img img13" onclick="openEditor(this)" src="img/13.jpg" alt="">
-                <img id="14" class="grid-img img14" onclick="openEditor(this)" src="img/14.jpg" alt="">
-                <img id="15" class="grid-img img15" onclick="openEditor(this)" src="img/15.jpg" alt="">
-                <img id="16" class="grid-img img16" onclick="openEditor(this)" src="img/16.jpg" alt="">
-                <img id="17" class="grid-img img17" onclick="openEditor(this)" src="img/17.jpg" alt="">
-                <img id="18" class="grid-img img18" onclick="openEditor(this)" src="img/18.jpg" alt=""> -->
             </section>
 
 
@@ -111,13 +108,15 @@
                         <option value="david">David</option>
 
                         <input class="selection-box color" type="color" oninput="onStrokeSelect(this.value)"></input>
-                        <input class="selection-box color" type="color" style="right:75px;" oninput="onFillSelect(this.value)"></input>
-                        <button class="selection-box color-box"><img class="color-icon"
-                                src="img/ICONS/text stroke.png" alt=""></button>
-                        <button class="selection-box color-box" style="right:75px;"><img class="color-icon" src="img/ICONS/paint-board-and-brush.png" alt=""></button>
+                        <input class="selection-box color" type="color" style="right:75px;"
+                            oninput="onFillSelect(this.value)"></input>
+                        <button class="selection-box color-box"><img class="color-icon" src="img/ICONS/text stroke.png"
+                                alt=""></button>
+                        <button class="selection-box color-box" style="right:75px;"><img class="color-icon"
+                                src="img/ICONS/paint-board-and-brush.png" alt=""></button>
                 </div>
                 <div class="selection-box stamps">Stamps</div>
-                <div class="wid100 flex space-between">
+                <div class="editor-buttons wid100 flex space-between">
                     <button class="selection-box share">Share</button>
                     <a class="download" href="#" onclick="downloadCanvas(this)" download="user-meme">Download</a>
                 </div>
@@ -126,7 +125,7 @@
         </section>
     </main>
 
-    <section class="about-container flex justify-center align-center">
+    <section id="about-anchor" class="about-container flex justify-center align-center">
         <section class="about-inner-container main-layout flex align-center justify-center">
             <div class="dev-img"></div>
             <div class="info-container">
@@ -159,7 +158,7 @@
 
     <footer class="flex justify-center align-center">
         <div class="footer-content main-layout flex align-center justify-center">
-            <img class="logo" src="img/LOGO.png" alt="memegen logo">
+            <img class="logo footer-logo" src="img/LOGO.png" alt="memegen logo">
             <p class="rights">all rights reserved 2019</p>
         </div>
     </footer>

@@ -151,6 +151,7 @@ img.control-icon {
 
 .color-container {
     position: relative;
+
 }
 
 .color {
@@ -158,8 +159,9 @@ img.control-icon {
     position: absolute;
     right: 0;
     bottom: 0;
-    z-index: 10;
+    z-index: 3;
 }
+
 
 .color-box {
     position: absolute;
@@ -168,8 +170,10 @@ img.control-icon {
     z-index: 1;
 }
 
+
 img.color-icon {
     width: 40px;
+    cursor: pointer;
 }
 
 .share {
@@ -237,6 +241,11 @@ button {
     cursor: pointer;
 }
 
+button:hover {
+    transition: 0.5s;
+    background-color: #8a8a8a;
+}
+
 /* Helpers */
 .wid100 {
     width: 100%;
@@ -266,6 +275,7 @@ a.download {
     padding-bottom: 18px;
     text-decoration: none;
     color: white;
+    text-align: center;
 }
 
 .flex {
@@ -295,24 +305,44 @@ a.download {
     list-style-type: none;
 }
 
+.hamburger-menu {
+    display: none;
+}
+
 @media (max-width: 1200px) {
+
+    main {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
     .main-layout {
         max-width: var(--small);
     }
+
+    *:not(.links) {
+        margin-inline-end: auto;
+        margin-inline-start: auto;
+    }
+
     .grid {
         display: grid;
-        grid-template-columns: repeat(2, minmax(100px, 1fr));
+        grid-template-columns: repeat(2, minmax(20px, 100%));
         gap: 10px;
         margin: 30px;
+
     }
+
     .about-inner-container {
         flex-direction: column;
         width: 100%;
         min-height: 400px;
     }
-    .info-container{
+
+    .info-container {
         padding: 0;
     }
+
     .info-container h1 {
         font-size: 1.25rem;
         text-align: center;
@@ -322,7 +352,143 @@ a.download {
         text-align: center;
     }
 
-    .links{
+    .links {
         justify-content: center;
+    }
+
+    .social-link-container {
+        margin: 5px;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .gallery-container {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    img.logo {
+        margin-right: 100px !important;
+    }
+    img.footer-logo{
+        margin: 0 !important;
+    }
+
+    .image-gallery {
+        margin: 0;
+    }
+
+    .meme-editor-container {
+        flex-direction: column;
+    }
+
+    canvas {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .control-box {
+        margin-left: 0;
+        margin-inline-end: auto;
+        margin-inline-start: auto;
+    }
+
+    .share {
+        margin: 0;
+    }
+
+    a.download {
+        margin: 0;
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+
+    #menu__toggle {
+        opacity: 0;
+    }
+
+    #menu__toggle:checked+.menu__btn>span {
+        transform: rotate(45deg);
+    }
+
+    #menu__toggle:checked+.menu__btn>span::before {
+        top: 0;
+        transform: rotate(0deg);
+    }
+
+    #menu__toggle:checked+.menu__btn>span::after {
+        top: 0;
+        transform: rotate(90deg);
+    }
+
+    #menu__toggle:checked~.menu__box {
+        left: 0 !important;
+    }
+
+    .menu__btn {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        width: 26px;
+        height: 26px;
+        margin-right: 10px !important;
+        cursor: pointer;
+        z-index: 1;
+    }
+
+    .menu__btn>span,
+    .menu__btn>span::before,
+    .menu__btn>span::after {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: white;
+        transition-duration: .25s;
+    }
+
+    .menu__btn>span::before {
+        content: '';
+        top: -8px;
+    }
+
+    .menu__btn>span::after {
+        content: '';
+        top: 8px;
+    }
+
+    .menu__box {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 300px;
+        height: 100%;
+        margin: 0;
+        padding: 80px 0;
+        list-style: none;
+        background-color: var(--main-color);
+        box-shadow: 2px 2px 6px rgba(0, 0, 0, .4);
+        transition-duration: .25s;
+        z-index: 20;
+    }
+
+    .menu__item {
+        display: block;
+        padding: 12px 24px;
+        color: white;
+        font-family: 'Roboto', sans-serif;
+        font-size: 20px;
+        font-weight: 600;
+        text-decoration: none;
+        transition-duration: .25s;
+    }
+
+    .menu__item:hover {
+        background-color: #CFD8DC;
     }
 }
