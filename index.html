@@ -9,118 +9,167 @@
     <title>Meme Generator</title>
 </head>
 
-<body>
+<body onload="init()">
 
     <header class="header-container">
 
-        <section class="header-inner flex space-between ">
+        <section class="header-inner flex justify-center">
+            <section class="header-inner main-layout flex align-center space-between">
+                <section class="full">
+                    <img class="logo" src="img/LOGO.png" alt="memegen logo">
+                </section>
 
-            <section>
-                <img class="logo" src="" alt="">
-                Logo here
+                <nav class="full">
+                    <ul class="clean-list flex">
+                        <div class="link-container flex justify-center align-center">
+                            <li><a class="header-link" href="" onclick="closeEditor()">Gallery</a></li>
+                        </div>
+                        <div class="link-container flex justify-center align-center">
+                            <li><a class="header-link" href="">Memes</a></li>
+                        </div>
+                        <div class="link-container flex justify-center align-center">
+                            <li><a class="header-link" href="">About</a></li>
+                        </div>
+                    </ul>
+                </nav>
             </section>
-
-            <nav>
-                <ul class="clean-list">
-                    <li><a href="">Gallery</a></li>
-                    <li><a href="">Memes</a></li>
-                    <li><a href="">About</a></li>
-                </ul>
-            </nav>
 
         </section>
 
-        <section class="flex filter-container main-layout  justify-center">
+        <section class="flex filter-container justify-center">
             filter
         </section>
 
     </header>
 
 
-
     <main class="flex justify-center">
 
         <section class="gallery-container main-layout">
-            <section class="grid image-gallery">
-                <img class="grid-img img1" src="../Delivery1 - Wednesday 2000/img/meme-imgs (square)/1.jpg" alt="">
-                <img class="grid-img img2" src="../Delivery1 - Wednesday 2000/img/meme-imgs (square)/2.jpg" alt="">
-                <img class="grid-img img3" src="../Delivery1 - Wednesday 2000/img/meme-imgs (square)/3.jpg" alt="">
-                <img class="grid-img img4" src="../Delivery1 - Wednesday 2000/img/meme-imgs (square)/4.jpg" alt="">
-                <img class="grid-img img5" src="../Delivery1 - Wednesday 2000/img/meme-imgs (square)/5.jpg" alt="">
-                <img class="grid-img img6" src="../Delivery1 - Wednesday 2000/img/meme-imgs (square)/6.jpg" alt="">
-                <img class="grid-img img7" src="../Delivery1 - Wednesday 2000/img/meme-imgs (square)/7.jpg" alt="">
-                <img class="grid-img img8" src="../Delivery1 - Wednesday 2000/img/meme-imgs (square)/8.jpg" alt="">
-                <img class="grid-img img9" src="../Delivery1 - Wednesday 2000/img/meme-imgs (square)/9.jpg" alt="">
-                <img class="grid-img img10" src="../Delivery1 - Wednesday 2000/img/meme-imgs (square)/10.jpg" alt="">
-                <img class="grid-img img11" src="../Delivery1 - Wednesday 2000/img/meme-imgs (square)/11.jpg" alt="">
-                <img class="grid-img img12" src="../Delivery1 - Wednesday 2000/img/meme-imgs (square)/12.jpg" alt="">
-                <img class="grid-img img13" src="../Delivery1 - Wednesday 2000/img/meme-imgs (square)/13.jpg" alt="">
-                <img class="grid-img img14" src="../Delivery1 - Wednesday 2000/img/meme-imgs (square)/14.jpg" alt="">
-                <img class="grid-img img15" src="../Delivery1 - Wednesday 2000/img/meme-imgs (square)/15.jpg" alt="">
-                <img class="grid-img img16" src="../Delivery1 - Wednesday 2000/img/meme-imgs (square)/16.jpg" alt="">
-                <img class="grid-img img17" src="../Delivery1 - Wednesday 2000/img/meme-imgs (square)/17.jpg" alt="">
-                <img class="grid-img img18" src="../Delivery1 - Wednesday 2000/img/meme-imgs (square)/18.jpg" alt="">
+            <section id="gallery" class="grid image-gallery">
+                <!-- <img id="1" class="grid-img img1" onclick="openEditor(this)" src="img/1.jpg" alt="">
+                <img id="2" class="grid-img img2" onclick="openEditor(this)" src="img/2.jpg" alt="">
+                <img id="3" class="grid-img img3" onclick="openEditor(this)" src="img/3.jpg" alt="">
+                <img id="4" class="grid-img img4" onclick="openEditor(this)" src="img/4.jpg" alt="">
+                <img id="5" class="grid-img img5" onclick="openEditor(this)" src="img/5.jpg" alt="">
+                <img id="6" class="grid-img img6" onclick="openEditor(this)" src="img/6.jpg" alt="">
+                <img id="7" class="grid-img img7" onclick="openEditor(this)" src="img/7.jpg" alt="">
+                <img id="8" class="grid-img img8" onclick="openEditor(this)" src="img/8.jpg" alt="">
+                <img id="9" class="grid-img img9" onclick="openEditor(this)" src="img/9.jpg" alt="">
+                <img id="10" class="grid-img img10" onclick="openEditor(this)" src="img/10.jpg" alt="">
+                <img id="11" class="grid-img img11" onclick="openEditor(this)" src="img/11.jpg" alt="">
+                <img id="12" class="grid-img img12" onclick="openEditor(this)" src="img/12.jpg" alt="">
+                <img id="13" class="grid-img img13" onclick="openEditor(this)" src="img/13.jpg" alt="">
+                <img id="14" class="grid-img img14" onclick="openEditor(this)" src="img/14.jpg" alt="">
+                <img id="15" class="grid-img img15" onclick="openEditor(this)" src="img/15.jpg" alt="">
+                <img id="16" class="grid-img img16" onclick="openEditor(this)" src="img/16.jpg" alt="">
+                <img id="17" class="grid-img img17" onclick="openEditor(this)" src="img/17.jpg" alt="">
+                <img id="18" class="grid-img img18" onclick="openEditor(this)" src="img/18.jpg" alt=""> -->
             </section>
 
 
         </section>
 
-        <section class="meme-editor-container flex">
+        <section class="meme-editor-container">
 
-            <canvas class="canvas" id="canvas" height="500" width="500"></canvas>
+            <canvas class="canvas" id="canvas" height="500" width="500">
+            </canvas>
 
-            <section class="control-box">
+            <section class="control-box flex justify-center align-center">
                 <div>
-                    <input type="text">
+                    <input class="line-text-input selection-box" type="text" placeholder="Enter text here..."
+                        oninput="setLineTxt(this)">
                 </div>
-                <div>
-                    <button>Down</button>
-                    <button>Up</button>
-                    <button>Switch</button>
-                    <button>Add</button>
-                    <button>Delete</button>
+                <div class="wid100 flex space-between">
+                    <button class="selection-box" onclick="onMoveLine(this.value)" value="down">Down</button>
+                    <button class="selection-box" onclick="onMoveLine(this.value)" value="up">Up</button>
+                    <button class="selection-box" onclick="onLineSwitch()"><img class="control-icon"
+                            src="img/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
+                    <button class="selection-box" onclick="onAddLine()"><img class="control-icon"
+                            src="img/ICONS/add.png" alt=""></button>
+                    <button class="selection-box" onclick="onRemoveLine()"><img class="control-icon"
+                            src="img/ICONS/trash.png" alt=""></button>
                 </div>
-                <div>
-                    <button>Font+</button>
-                    <button>Font_</button>
-                    <button>Left</button>
-                    <button>Center</button>
-                    <button>Right</button> <br> 
-                    <select id="">
+                <div class="flex space-between wid100">
+                    <button class="selection-box" onclick="onFontSizeChange(this.value)" value="+"><img
+                            class="control-icon" src="img/ICONS/increase font - icon.png" alt=""></button>
+                    <button class="selection-box" onclick="onFontSizeChange(this.value)" value="-"><img
+                            class="control-icon" src="img/ICONS/decrease font - icon.png" alt=""></button>
+                    <button class="selection-box" onclick="alignText(this.value)" value="left"><img class="control-icon"
+                            src="img/ICONS/align-to-left.png" alt=""></button>
+                    <button class="selection-box" onclick="alignText(this.value)" value="center"><img
+                            class="control-icon" src="img/ICONS/center-text-alignment.png" alt=""></button>
+                    <button class="selection-box" onclick="alignText(this.value)" value="right"><img
+                            class="control-icon" src="img/ICONS/align-to-right.png" alt=""></button> <br>
+                    </select>
+                </div>
+                <div class="color-container wid100">
+                    <select class="selection-box font-input" id="" oninput="onSetFont(this.value)">
                         <option value="impact">Impact</option>
                         <option value="arial">Arial</option>
                         <option value="tahoma">Tahoma</option>
-                    </select>
-                    <button>Stroke Color</button>
-                    <button>Font Color</button>
+                        <option value="david">David</option>
+
+                        <input class="selection-box color" type="color" oninput="onStrokeSelect(this.value)"></input>
+                        <input class="selection-box color" type="color" style="right:75px;" oninput="onFillSelect(this.value)"></input>
+                        <button class="selection-box color-box"><img class="color-icon"
+                                src="img/ICONS/text stroke.png" alt=""></button>
+                        <button class="selection-box color-box" style="right:75px;"><img class="color-icon" src="img/ICONS/paint-board-and-brush.png" alt=""></button>
                 </div>
-                <div>Stamps</div>
-                <div>
-                    <button>Share</button>
-                    <button>Download</button>
+                <div class="selection-box stamps">Stamps</div>
+                <div class="wid100 flex space-between">
+                    <button class="selection-box share">Share</button>
+                    <a class="download" href="#" onclick="downloadCanvas(this)" download="user-meme">Download</a>
                 </div>
             </section>
 
         </section>
     </main>
 
-    <section class="about-container">
-        about container
-        <section class="about-inner-container">
-            about info
+    <section class="about-container flex justify-center align-center">
+        <section class="about-inner-container main-layout flex align-center justify-center">
+            <div class="dev-img"></div>
+            <div class="info-container">
+                <h1>Eilon Vana</h1>
+                <p>is a real person who actually created this site in order to display his software development
+                    abilities, plus hes really cool. a real solid guy.</p>
+                <section class="links flex  ">
+                    <div class="social-link-container flex align-center full">
+                        <a class="social-link" href="https://www.linkedin.com/in/eilon-vana-251411247/"
+                            target="_blank"><img class="flex" src="img/ICONS/linkedin-logo.png" alt=""></a>
+                    </div>
+                    <div class="social-link-container flex align-center full">
+                        <a class="social-link" href="https://www.facebook.com/dontmindmejustcleaninguphere/"
+                            target="_blank"><img class="flex" src="img/ICONS/facebook-logo.png" alt=""></a>
+                    </div>
+
+                    <div class="social-link-container flex align-center full">
+                        <a class="social-link" href="https://github.com/EilonV" target="_blank"><img
+                                src="img/ICONS/github-logo.png" class="flex" alt=""></a>
+                    </div>
+                </section>
+
+
+
+
+            </div>
         </section>
-        about container
     </section>
 
 
-    <footer>
-        footer
+    <footer class="flex justify-center align-center">
+        <div class="footer-content main-layout flex align-center justify-center">
+            <img class="logo" src="img/LOGO.png" alt="memegen logo">
+            <p class="rights">all rights reserved 2019</p>
+        </div>
     </footer>
 
 
     <script src="js/storage.js"></script>
-    <script src="js/service.js"></script>
-    <script src="js/controller.js"></script>
+    <script src="js/meme-controller.js"></script>
+    <script src="js/meme-service.js"></script>
+    <script src="js/gallery-controller.js"></script>
+    <script src="js/gallery-service.js"></script>
 </body>
 
 </html>
