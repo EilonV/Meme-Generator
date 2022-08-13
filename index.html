@@ -28,7 +28,7 @@
 
                     <ul class="menu__box">
                         <li><a class="menu__item" href="#" onclick="closeEditor()">Gallery</a></li>
-                        <li><a class="menu__item" href="#">Memes</a></li>
+                        <li><a class="menu__item" href="#" onclick="onMemesClick(event)">Memes</a></li>
                         <li><a class="menu__item" href="#about-anchor">About</a></li>
                     </ul>
                 </div>
@@ -40,7 +40,7 @@
                             <li><a class="header-link" href="" onclick="closeEditor()">Gallery</a></li>
                         </div>
                         <div class="link-container flex justify-center align-center">
-                            <li><a class="header-link" href="">Memes</a></li>
+                            <li><a class="header-link" href="" onclick="onMemesClick(event)">Memes</a></li>
                         </div>
                         <div class="link-container flex justify-center align-center">
                             <li><a class="header-link" href="#about-anchor">About</a></li>
@@ -51,20 +51,34 @@
 
         </section>
 
-        <section class="flex filter-container justify-center">
-            filter
+        <section class="flex filter-container justify-center align-center">
+            <section>
+                <input list="tags" placeholder="Search by tag..." onchange="filterGallery(this)">
+                <datalist id="tags">
+                    <option value="funny">
+                    <option value="cute">
+                    <option value="animal">
+                    <option value="crazy">
+                    <option value="love">
+                    <option value="baby">
+                </datalist>
+            </section>
+
+
+            <button class="selection-box flexible-btn" onclick="onFlexSelect()">I'm flexible!</button>
         </section>
 
     </header>
 
 
     <main class="flex justify-center">
-
         <section class="gallery-container main-layout">
             <section id="gallery" class="grid image-gallery">
             </section>
-
-
+        </section>
+        <section class="gallery-container main-layout user-gallery">
+            <section id="user-gallery" class="grid image-gallery">
+            </section>
         </section>
 
         <section class="meme-editor-container">
@@ -78,8 +92,10 @@
                         oninput="setLineTxt(this)">
                 </div>
                 <div class="wid100 flex space-between">
-                    <button class="selection-box" onclick="onMoveLine(this.value)" value="down">Down</button>
-                    <button class="selection-box" onclick="onMoveLine(this.value)" value="up">Up</button>
+                    <button class="selection-box" onclick="onMoveLine(this.value)" value="down"><img
+                            class="control-icon" src="img/ICONS/down-arrow.png" alt=""></button>
+                    <button class="selection-box" onclick="onMoveLine(this.value)" value="up"><img class="control-icon"
+                            src="img/ICONS/up-arrow.png" alt=""></button>
                     <button class="selection-box" onclick="onLineSwitch()"><img class="control-icon"
                             src="img/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
                     <button class="selection-box" onclick="onAddLine()"><img class="control-icon"
@@ -92,12 +108,12 @@
                             class="control-icon" src="img/ICONS/increase font - icon.png" alt=""></button>
                     <button class="selection-box" onclick="onFontSizeChange(this.value)" value="-"><img
                             class="control-icon" src="img/ICONS/decrease font - icon.png" alt=""></button>
-                    <button class="selection-box" onclick="alignText(this.value)" value="left"><img class="control-icon"
-                            src="img/ICONS/align-to-left.png" alt=""></button>
+                    <button class="selection-box" onclick="alignText(this.value)" value="right"><img
+                            class="control-icon" src="img/ICONS/align-to-left.png" alt=""></button>
                     <button class="selection-box" onclick="alignText(this.value)" value="center"><img
                             class="control-icon" src="img/ICONS/center-text-alignment.png" alt=""></button>
-                    <button class="selection-box" onclick="alignText(this.value)" value="right"><img
-                            class="control-icon" src="img/ICONS/align-to-right.png" alt=""></button> <br>
+                    <button class="selection-box" onclick="alignText(this.value)" value="left"><img class="control-icon"
+                            src="img/ICONS/align-to-right.png" alt=""></button>
                     </select>
                 </div>
                 <div class="color-container wid100">
@@ -115,9 +131,10 @@
                         <button class="selection-box color-box" style="right:75px;"><img class="color-icon"
                                 src="img/ICONS/paint-board-and-brush.png" alt=""></button>
                 </div>
-                <div class="selection-box stamps">Stamps</div>
+                <div class="selection-box stamps flex justify-center align-center">Stamps</div>
                 <div class="editor-buttons wid100 flex space-between">
                     <button class="selection-box share">Share</button>
+                    <button class="selection-box save" onclick="onSave()">Save</button>
                     <a class="download" href="#" onclick="downloadCanvas(this)" download="user-meme">Download</a>
                 </div>
             </section>
@@ -127,7 +144,7 @@
 
     <section id="about-anchor" class="about-container flex justify-center align-center">
         <section class="about-inner-container main-layout flex align-center justify-center">
-            <div class="dev-img"></div>
+            <div><img class="dev-img" src="img/eilon.png" alt=""></div>
             <div class="info-container">
                 <h1>Eilon Vana</h1>
                 <p>is a real person who actually created this site in order to display his software development
@@ -165,6 +182,7 @@
 
 
     <script src="js/storage.js"></script>
+    <script src="js/util.js"></script>
     <script src="js/meme-controller.js"></script>
     <script src="js/meme-service.js"></script>
     <script src="js/gallery-controller.js"></script>

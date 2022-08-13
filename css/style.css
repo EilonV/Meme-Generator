@@ -77,6 +77,18 @@ img.logo {
     display: flex;
 }
 
+.flexible-btn {
+    background-color: var(--main-color) !important;
+    height: 30px !important;
+    margin: 10px;
+    font-size: 17px !important;
+    color: white;
+}
+
+.flexible-btn:hover {
+    background-color: rgb(105, 93, 181) !important;
+}
+
 main {
     background-color: var(--color1);
 }
@@ -94,6 +106,10 @@ main {
 .gallery-container {
     margin-right: 0;
     display: block;
+}
+
+.user-gallery{
+    display: none;
 }
 
 .grid {
@@ -182,23 +198,40 @@ img.color-icon {
     background-color: var(--main-color) !important;
 }
 
+.share:hover {
+    background-color: rgb(112, 100, 193);
+}
+
+.selection-box.save {
+    min-width: 80px !important;
+    color: white !important;
+    background-color: var(--main-color) !important;
+
+}
+
+.save:hover,
+.share:hover,
+.download:hover {
+    transition: 0.5s;
+    background-color: rgb(112, 100, 193) !important;
+}
+
 .about-container {
     display: block;
     min-height: 550px;
 }
 
 .about-inner-container {
+    margin: auto;
     width: 100%;
     min-height: 400px;
 }
 
 .dev-img {
-    min-width: 120px;
-    max-width: 320px;
-    min-height: 120px;
-    max-height: 320px;
-    border: solid;
-    border-radius: 100%;
+    margin-top: 10px;
+    height: 300px;
+    max-width: 300px;
+    border-radius: 50%;
 }
 
 .info-container {
@@ -365,18 +398,21 @@ a.download {
     }
 
     .gallery-container {
-        margin-left: 20px;
-        margin-right: 20px;
+        margin: 20px;
     }
 
     img.logo {
         margin-right: 100px !important;
     }
-    img.footer-logo{
+
+    img.footer-logo {
         margin: 0 !important;
     }
 
     .image-gallery {
+        margin: 0;
+    }
+    .image-gallery-user{
         margin: 0;
     }
 

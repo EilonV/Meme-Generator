@@ -17,23 +17,51 @@ function renderMeme() {
                 break
         }
     }
+    console.log(gMeme)
 }
 
-
+function renderUserMeme(canvasImg) {
+    const img = new Image()
+    img.src = gImgs[gUserMemes[canvasImg.classList[0].charAt(4)].selectedImgId - 1].url
+    gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
+    for (var i = 0; i < gUserMemes[canvasImg.classList[0].charAt(4)].lines.length; i++) {
+        switch (i) {
+            case 0:
+                drawText(gUserMemes[canvasImg.classList[0].charAt(4)].lines[i].txt, gUserMemes[canvasImg.classList[0].charAt(4)].lines[i].size, gCanvas.width / 2, gCanvasHeight[0] / 10)
+                break
+            case 1:
+                drawText(gUserMemes[canvasImg.classList[0].charAt(4)].lines[i].txt, gUserMemes[canvasImg.classList[0].charAt(4)].lines[i].size, gCanvas.width / 2, gCanvasHeight[1] - 50)
+                break
+            case 2:
+                drawText(gUserMemes[canvasImg.classList[0].charAt(4)].lines[i].txt, gUserMemes[canvasImg.classList[0].charAt(4)].lines[i].size, gCanvas.width / 2, gCanvasHeight[2] / 2)
+                break
+        }
+    }
+}
 // Opens the editor with specified meme
 function onImgSelect(canvasImg) {
+    gCurrStroke = 'black'
+    gCurrFill = 'white'
 
     console.log('img id: ', canvasImg.id)
     gMeme = getMeme('text', canvasImg.id)
 
     showEditor()
     renderMeme()
+}
 
-    // img.onload = () => {
-    //     gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
-    //     drawText('Text here', 40, gCanvas.width / 2, 50)
-    // }
+function onUserImgSelect(canvasImg) {
+    
+    // gUserMemes[canvasImg.classList[0].charAt(4)] = getMeme(gUserMemes.lines[0].txt, canvasImg.id)
+    console.log(gUserMemes[canvasImg.classList[0].charAt(4)].lines[0].txt)
+    showEditor()
+    renderUserMeme(canvasImg)
+}
 
+function onFlexSelect() {
+    showEditor()
+    flexSelect()
+    renderMeme()
 }
 
 function onMoveLine(direction) {
@@ -59,7 +87,7 @@ function onRemoveLine() {
 }
 
 function onFontSizeChange(size) {
-    size === '+' ? gMeme.lines[gCurrLine].size += 5 : gMeme.lines[gCurrLine].size -= 5
+    changeFontSize(size)
     renderMeme()
 }
 
@@ -87,7 +115,14 @@ function downloadCanvas(elLink) {
     elLink.download = 'meme.jpg'
 }
 
-function alignText(direct){
+function alignText(direct) {
     console.log(gMeme.lines[gCurrLine].align)
-    gMeme.lines[gCurrLine].align = `direct`
+    gMeme.lines[gCurrLine].align = direct
+    renderMeme()
+}
+
+function onSave() {
+    saveMeme()
+    alert('Meme saved to Memes')
+    console.log(gUserMemes)
 }
