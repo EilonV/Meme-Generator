@@ -22,3 +22,9 @@ var gImgs = [
     { id: 17, url: 'img/17.jpg', keywords: ['funny', 'crazy'] },
     { id: 18, url: 'img/18.jpg', keywords: ['funny'] },
 ]
+
+// var handleDrag = {
+//     x: gCanvas.width,
+//     y: gCanvas.height / 5
+// }
+

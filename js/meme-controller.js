@@ -17,7 +17,8 @@ function renderMeme() {
                 break
         }
     }
-    console.log(gMeme)
+    console.log('gMeme: ',gMeme)
+    console.log('gCtx: ',gCtx)
 }
 
 function renderUserMeme(canvasImg) {
@@ -43,16 +44,17 @@ function onImgSelect(canvasImg) {
     gCurrStroke = 'black'
     gCurrFill = 'white'
 
-    console.log('img id: ', canvasImg.id)
     gMeme = getMeme('text', canvasImg.id)
 
     showEditor()
     renderMeme()
+    renderUserGallery()
 }
 
 function onUserImgSelect(canvasImg) {
-    
     // gUserMemes[canvasImg.classList[0].charAt(4)] = getMeme(gUserMemes.lines[0].txt, canvasImg.id)
+
+    gMeme = gUserMemes[canvasImg.classList[0].charAt(4)]
     console.log(gUserMemes[canvasImg.classList[0].charAt(4)].lines[0].txt)
     showEditor()
     renderUserMeme(canvasImg)
@@ -113,6 +115,7 @@ function downloadCanvas(elLink) {
     const data = gCanvas.toDataURL()
     elLink.href = data
     elLink.download = 'meme.jpg'
+    console.log(data)
 }
 
 function alignText(direct) {
@@ -125,4 +128,37 @@ function onSave() {
     saveMeme()
     alert('Meme saved to Memes')
     console.log(gUserMemes)
+}
+
+function renderCanvas() {
+    gCtx.fillStyle = "black"
+    gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height)
+    renderCircle()
+}
+
+function addMouseListeners() {
+    gCanvas.addEventListener('mousemove', onMove)
+    gCanvas.addEventListener('mousedown', onDown)
+    gCanvas.addEventListener('mouseup', onUp)
+}
+
+function addTouchListeners() {
+    gCanvas.addEventListener('touchmove', onMove)
+    gCanvas.addEventListener('touchstart', onDown)
+    gCanvas.addEventListener('touchend', onUp)
+}
+
+function addListeners() {
+    addMouseListeners()
+    addTouchListeners()
+    window.addEventListener('resize', () => {
+        resizeCanvas()
+        renderCanvas()
+    })
+}
+
+function resizeCanvas() {
+    const elContainer = document.querySelector('.canvas')
+    gCanvas.width = elContainer.offsetWidth
+    gCanvas.height = elContainer.offsetHeight
 }

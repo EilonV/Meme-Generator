@@ -5,12 +5,15 @@ function init() {
     console.log(gCtx)
     gCanvasHeight = [gCanvas.height, gCanvas.height, gCanvas.height]
     gUserMemes = []
+
     renderGallery()
-    if (!gUserMemes) {
-        loadMemesFromStorage()
-    }
-    renderUserGallery()
     console.log(gUserMemes)
+    
+    loadMemesFromStorage()
+
+    console.log(gUserMemes)
+
+    renderUserGallery()
 }
 
 function renderGallery() {
@@ -28,8 +31,8 @@ function renderUserGallery() {
     var elGallery = document.querySelector('#user-gallery')
     var strHTML = ''
 
-    for (var i = 1; i < gUserMemes.length; i++) {
-        strHTML += `<img id="${gUserMemes[i].selectedImgId}" class="meme${i - 1} grid-img img${gUserMemes[i].selectedImgId}" onclick="onUserImgSelect(this)" src="img/${gUserMemes[i].selectedImgId}.jpg" alt="">`
+    for (var i = 0; i < gUserMemes.length; i++) {
+        strHTML += `<img id="${gUserMemes[i].selectedImgId}" class="meme${i} grid-img img${gUserMemes[i].selectedImgId}" onclick="onUserImgSelect(this)" src="img/${gUserMemes[i].selectedImgId}.jpg" alt="">`
     }
     elGallery.innerHTML = strHTML
 }
@@ -71,11 +74,12 @@ function onMemesClick(ev) {
     var gallery = document.querySelector('.gallery-container')
     var userGallery = document.querySelector('.user-gallery')
     var editor = document.querySelector('.meme-editor-container')
+    var about = document.querySelector('.about-container')
 
+    about.style.display = 'block'
     editor.style.display = 'none'
     gallery.style.display = 'none'
     userGallery.style.display = 'block'
-
 }
 
 function filterGallery(filterBy) {

@@ -89,6 +89,12 @@ img.logo {
     background-color: rgb(105, 93, 181) !important;
 }
 
+.filter{
+    border-radius: 12px;
+    padding: 5px;
+    max-width: 150px;
+}
+
 main {
     background-color: var(--color1);
 }
@@ -501,8 +507,8 @@ a.download {
         display: block;
         position: fixed;
         top: 0;
-        left: -100%;
-        width: 300px;
+        left: -150%;
+        width: 200px;
         height: 100%;
         margin: 0;
         padding: 80px 0;
@@ -526,5 +532,11 @@ a.download {
 
     .menu__item:hover {
         background-color: #CFD8DC;
+    }
+
+    .dev-img {
+        margin-top: 10px;
+        height: 200px;
+        max-width: 200px;
     }
 }

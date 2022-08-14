@@ -39,7 +39,8 @@ function getMeme(txt, id) {
                 txt: txt,
                 size: 40,
                 align: 'center',
-                color: 'black'
+                color: 'black',
+                fill: 'white'
             }
         ]
     }
@@ -96,11 +97,11 @@ function switchLine() {
 }
 
 function flexSelect() {
-    let canvasImg = gImgs[getRandomInt(0, 18)]
-    let randFirstTxt = gMemeTextFirst[getRandomInt(0, 10)]
-    let randSecondTxt = gMemeTextSecond[getRandomInt(0, 10)]
-    let randLines = getRandomInt(1, 3)
-    let randSize = getRandomInt(21, 61)
+    var canvasImg = gImgs[getRandomInt(0, 18)]
+    var randFirstTxt = gMemeTextFirst[getRandomInt(0, 10)]
+    var randSecondTxt = gMemeTextSecond[getRandomInt(0, 10)]
+    var randLines = getRandomInt(1, 3)
+    var randSize = getRandomInt(21, 61)
 
     gCurrFill = getRandomColor()
     gCurrStroke = getRandomColor()
@@ -142,6 +143,7 @@ function saveMemesToStorage() {
 
 function loadMemesFromStorage() {
     var memes = loadFromStorage('userMemesDB')
-    gUserMemes = memes
+    if (memes)
+        gUserMemes = memes
     saveMemesToStorage()
 }
